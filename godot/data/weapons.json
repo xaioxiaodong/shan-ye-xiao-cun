@@ -1,0 +1,74 @@
+[
+  {
+    "id": "rusty_sword",
+    "name": "生锈的剑",
+    "type": "sword",
+    "damage": 5,
+    "attackSpeed": 1.0,
+    "description": "一把老旧生锈的剑，冒险家公会赠送的基础武器。"
+  },
+  {
+    "id": "steel_sword",
+    "name": "钢剑",
+    "type": "sword",
+    "damage": 15,
+    "attackSpeed": 1.0,
+    "description": "锋利坚固的钢剑，平衡性极佳。"
+  },
+  {
+    "id": "obsidian_edge",
+    "name": "黑曜石之刃",
+    "type": "sword",
+    "damage": 30,
+    "attackSpeed": 1.0,
+    "description": "用黑曜石锻造的利剑，削铁如泥。"
+  },
+  {
+    "id": "galaxy_sword",
+    "name": "银河剑",
+    "type": "sword",
+    "damage": 60,
+    "attackSpeed": 1.0,
+    "description": "传说中的银河之剑，散发着宇宙的能量。"
+  },
+  {
+    "id": "wooden_mallet",
+    "name": "木槌",
+    "type": "hammer",
+    "damage": 8,
+    "attackSpeed": 0.7,
+    "description": "沉重的木槌，攻击力不错但速度较慢。"
+  },
+  {
+    "id": "lead_rod",
+    "name": "铅棒",
+    "type": "hammer",
+    "damage": 20,
+    "attackSpeed": 0.7,
+    "description": "用铅铸造的重型武器，一击可造成巨大伤害。"
+  },
+  {
+    "id": "earth_shaker",
+    "name": "大地震撼者",
+    "type": "hammer",
+    "damage": 40,
+    "attackSpeed": 0.7,
+    "description": "巨大的战锤，砸向地面时连大地都会颤抖。"
+  },
+  {
+    "id": "iron_dirk",
+    "name": "铁匕首",
+    "type": "dagger",
+    "damage": 8,
+    "attackSpeed": 1.5,
+    "description": "轻便的铁匕首，快速刺击的利器。"
+  },
+  {
+    "id": "crystal_dagger",
+    "name": "水晶匕首",
+    "type": "dagger",
+    "damage": 20,
+    "attackSpeed": 1.5,
+    "description": "用水晶打造的匕首，轻盈且致命。"
+  }
+]

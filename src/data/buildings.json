@@ -1,0 +1,153 @@
+[
+  {
+    "id": "chicken_coop",
+    "name": "鸡舍",
+    "cost": 3000,
+    "materials": [
+      { "itemId": "wood", "amount": 200 },
+      { "itemId": "stone", "amount": 100 }
+    ],
+    "function": "养鸡",
+    "capacity": 4
+  },
+  {
+    "id": "big_coop",
+    "name": "大鸡舍",
+    "cost": 8000,
+    "materials": [
+      { "itemId": "wood", "amount": 400 },
+      { "itemId": "stone", "amount": 150 }
+    ],
+    "function": "养鸡养鸭，含孵蛋器",
+    "capacity": 8
+  },
+  {
+    "id": "barn",
+    "name": "畜棚",
+    "cost": 5000,
+    "materials": [
+      { "itemId": "wood", "amount": 300 },
+      { "itemId": "stone", "amount": 150 }
+    ],
+    "function": "养牛",
+    "capacity": 4
+  },
+  {
+    "id": "big_barn",
+    "name": "大畜棚",
+    "cost": 10000,
+    "materials": [
+      { "itemId": "wood", "amount": 400 },
+      { "itemId": "stone", "amount": 200 }
+    ],
+    "function": "养牛养羊",
+    "capacity": 8
+  },
+  {
+    "id": "deluxe_barn",
+    "name": "豪华畜棚",
+    "cost": 20000,
+    "materials": [
+      { "itemId": "wood", "amount": 500 },
+      { "itemId": "stone", "amount": 300 }
+    ],
+    "function": "养猪，自动喂食系统",
+    "capacity": 12
+  },
+  {
+    "id": "silo",
+    "name": "筒仓",
+    "cost": 2000,
+    "materials": [
+      { "itemId": "wood", "amount": 100 },
+      { "itemId": "stone", "amount": 100 },
+      { "itemId": "clay", "amount": 10 }
+    ],
+    "function": "储存干草",
+    "capacity": 240
+  },
+  {
+    "id": "stable",
+    "name": "马厩",
+    "cost": 8000,
+    "materials": [
+      { "itemId": "wood", "amount": 100 },
+      { "itemId": "iron_ingot", "amount": 5 }
+    ],
+    "function": "养马，加速移动",
+    "capacity": 1
+  },
+  {
+    "id": "fish_pond",
+    "name": "鱼塘",
+    "cost": 4000,
+    "materials": [
+      { "itemId": "stone", "amount": 150 },
+      { "itemId": "seaweed", "amount": 5 }
+    ],
+    "function": "养鱼，产鱼卵",
+    "capacity": 10
+  },
+  {
+    "id": "cabin",
+    "name": "小屋",
+    "cost": 10000,
+    "materials": [
+      { "itemId": "wood", "amount": 200 },
+      { "itemId": "stone", "amount": 100 }
+    ],
+    "function": "联机玩家住所",
+    "capacity": 1
+  },
+  {
+    "id": "house_lv1",
+    "name": "农舍 Lv1",
+    "cost": 0,
+    "materials": [],
+    "function": "单间+床+旧炉灶",
+    "capacity": 1
+  },
+  {
+    "id": "house_lv2",
+    "name": "农舍 Lv2",
+    "cost": 5000,
+    "materials": [
+      { "itemId": "wood", "amount": 200 }
+    ],
+    "function": "厨房（解锁烹饪）",
+    "capacity": 1
+  },
+  {
+    "id": "house_lv3",
+    "name": "农舍 Lv3",
+    "cost": 15000,
+    "materials": [
+      { "itemId": "wood", "amount": 300 },
+      { "itemId": "stone", "amount": 200 }
+    ],
+    "function": "卧室扩大+婴儿房",
+    "capacity": 1
+  },
+  {
+    "id": "house_lv4",
+    "name": "农舍 Lv4",
+    "cost": 30000,
+    "materials": [
+      { "itemId": "wood", "amount": 400 },
+      { "itemId": "hardwood", "amount": 100 }
+    ],
+    "function": "地下室（酿酒陈化）",
+    "capacity": 1
+  },
+  {
+    "id": "house_lv5",
+    "name": "农舍 Lv5",
+    "cost": 50000,
+    "materials": [
+      { "itemId": "stone", "amount": 300 },
+      { "itemId": "iridium_ingot", "amount": 5 }
+    ],
+    "function": "顶层观景台+终极厨房",
+    "capacity": 1
+  }
+]

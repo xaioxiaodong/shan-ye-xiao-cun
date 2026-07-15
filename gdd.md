@@ -39,7 +39,7 @@
 | 4 | **没有强制失败** | 不设 Game Over，没有时间限制，玩家永远可以按照自己的节奏玩 |
 | 5 | **像素美术风格统一** | 16×16 Tile 基准，有限色板，手绘风格 |
 | 6 | **全平台可玩** | PC（Tauri）和手机（Capacitor）共用一套代码 |
-| 7 | **质量与防护并重** | 合理优化是必要的。**必须设置安全防护措施**防止 bug 或异常导致过载/崩溃（→ 11.4 七维熔断保护） |
+| 7 | **质量与防护并重** | 合理优化是必要的。**必须设置安全防护措施**防止 bug 或异常导致过载/崩溃（→ 11.4 十维熔断保护） |
 | 8 | **联机不歧视** | 所有玩家体验完全一致，不存在主机优势（→ 8.4 客户端预测+主机仲裁） |
 | 9 | **系统整合闭环** | 所有核心系统必须至少与另外两个系统有正向反馈循环（→ 5.3 整合检查清单） |
 | 10 | **可及性优先** | 支持色盲模式、可重映射键位、触屏与键鼠同样完整（→ 12.1） |
@@ -73,7 +73,7 @@
 | 多人联机 | Listen Server 模式，2-4 人 | → 8 |
 | 背包系统 | 物品管理、分类、堆叠、快速切换 | → 4.12 |
 | 存档系统 | 本地+联机存档，3+1 槽位 | → 9 |
-| 安全防护框架 | 渲染/网络/内存/循环 7 维安全护栏 | → 11.4 |
+| 安全防护框架 | 渲染/网络/内存/循环/输入/WebGL 等 10 维安全护栏 | → 11.4 |
 
 ### 扩展功能（P1）
 
@@ -1731,8 +1731,12 @@ v1.3 → v2.0: 大版本，存档结构重构，自动迁移脚本
 | 手机打包 | Capacitor | 6.x | WebView 包装 |
 | 音频引擎 | Howler.js | 2.x | 轻量级音频库 |
 | 测试 | Vitest | — | 单元测试 |
+| 代码规范 | ESLint + @typescript-eslint/strict | — | 强制禁止 any、强制返回类型 |
+| 格式化 | Prettier | — | 统一代码风格 |
 
 ## 11.2 代码规范（不可变更）
+
+### 编码规范
 
 | 规则 | 规定 |
 |------|------|
@@ -1741,9 +1745,77 @@ v1.3 → v2.0: 大版本，存档结构重构，自动迁移脚本
 | 类型声明 | 所有变量/参数/返回值必须显式声明 |
 | 命名规范 | camelCase（变量/函数），PascalCase（类/接口/类型） |
 | 文件命名 | kebab-case.ts |
-| 单文件行数 | ≤ 300 行 |
+| 单文件行数 | ≤ 300 行（纯数据/配置文件如作物表、NPC 表可放宽至 500 行，需顶部注释说明原因） |
 | 单函数行数 | ≤ 50 行 |
 | 注释 | 中文，JSDoc 规范 |
+
+### 架构规范（不可变更）
+
+```typescript
+/**
+ * 系统架构模式 —— 所有核心系统必须遵循
+ *
+ * 1. 系统类模式：每个核心系统实现为独立 System 类
+ *    （FarmingSystem、TimeSystem、CombatSystem 等）
+ *    Scene 仅负责生命周期编排（init → create → update → shutdown）
+ *
+ * 2. 状态管理：全局 GameState store
+ *    所有系统通过它读写共享数据
+ *    便于存档序列化、联机同步、调试快照
+ *
+ * 3. 错误隔离：每个 System 有独立 try/catch 边界
+ *    单系统崩溃降级为「该功能暂不可用」，不拖垮整个游戏
+ *
+ * 4. 系统间通信：通过 EventBus 事件总线
+ *    禁止系统间直接方法调用
+ */
+
+interface GameSystem {
+  readonly id: string;
+  init(state: GameState): void;
+  update(deltaMs: number): void;
+  shutdown(): void;
+}
+
+interface EventBus {
+  emit(event: string, data: unknown): void;
+  on(event: string, handler: (data: unknown) => void): void;
+  off(event: string, handler: (data: unknown) => void): void;
+}
+
+interface GameState {
+  player: PlayerState;
+  farm: FarmState;
+  world: WorldState;
+  multiplayer: MultiplayerState;
+  // 存档序列化：直接 dump GameState
+  // 联机同步：diff GameState
+  // 调试：保存快照
+}
+```
+
+```typescript
+// 系统错误隔离示例
+class SystemManager {
+  private systems: GameSystem[] = [];
+
+  update(deltaMs: number): void {
+    for (const system of this.systems) {
+      try {
+        system.update(deltaMs);
+      } catch (error: unknown) {
+        logger.error('safety', `系统 ${system.id} 崩溃`, error);
+        this.degradeSystem(system.id);
+      }
+    }
+  }
+
+  private degradeSystem(id: string): void {
+    // 标记该系统为降级状态，UI 显示「该功能暂不可用」
+    this.eventBus.emit('system:degraded', { systemId: id });
+  }
+}
+```
 
 ## 11.3 性能优化
 
@@ -1777,9 +1849,52 @@ const OPTIMIZATION_GUIDE = {
 | 内存占用 | < 500MB | < 200MB |
 | 包体大小 | < 50MB | < 50MB |
 
+### 平台差异化资源缓存（首发基准值）
+
+| 缓存类别 | PC | 手机 |
+|----------|:--:|:----:|
+| 纹理缓存 | ≤ 128MB | ≤ 80MB |
+| 音频缓存 | ≤ 64MB | ≤ 32MB |
+| 数据缓存条目 | ≤ 500 | ≤ 300 |
+
+> 以上数值为首发基准值，随设备性能提升可调整，定义在 `GameConfig.cache` 中。
+
+### 页面可见性处理
+
+```typescript
+interface VisibilitySafeguards {
+  onHidden: {
+    pauseGameLoop: true;          // 暂停游戏循环
+    stopAudio: true;              // 停止所有音频播放
+    reduceNetworkSync: true;      // 降低网络同步频率（1Hz → 0.2Hz）
+  };
+  onVisible: {
+    recalibrateTime: true;        // 重新校准时间系统（补偿隐藏期间的时间偏移）
+    resumeAudio: true;            // 恢复音频播放
+    restoreNetworkSync: true;     // 恢复网络同步频率
+    reloadIfContextLost: true;    // 若 WebGL 上下文已丢失则重新加载场景
+  };
+}
+```
+
+### 内存泄漏检测
+
+```typescript
+interface MemoryLeakDetection {
+  checkIntervalMs: 300000;        // 每 5 分钟记录一次内存水位
+  risingThreshold: 3;             // 连续 3 次上升超阈值触发告警
+  thresholdMB: 50;                // 单次上升超过 50MB 视为异常
+  onAlert: 'logWarningAndNotify'; // 记录日志并通知用户
+}
+```
+
 ## 11.4 安全防护机制（Circuit Breaker & Safeguards）
 
 > 所有防护措施必须独立于业务逻辑，不得因防护代码引发新的崩溃。
+
+> **参数分类说明：**
+> - **硬性上限（HARD_LIMIT）**：引擎/技术层面的绝对限制，不可突破
+> - **首发基准值（BASELINE）**：当前版本的推荐值，随游戏内容扩展可调整，统一定义在 `GameConfig`（→ 11.8）中
 
 ### 11.4.1 游戏循环安全（→ 3.1 时间系统 / → 4 所有系统）
 
@@ -1787,32 +1902,44 @@ const OPTIMIZATION_GUIDE = {
 interface GameLoopSafeguards {
   frameTimeLimit: {
     enabled: true;
-    maxMsPerFrame: 100;          // 单帧≤100ms
+    maxMsPerFrame: 100;          // 单帧≤100ms（HARD_LIMIT）
     onExceed: 'skipRemaining';
     logWarning: true;
   };
   updateIterationCap: {
     enabled: true;
-    maxIterationsPerUpdate: 10000;
+    maxIterationsPerUpdate: 10000; // HARD_LIMIT
     onExceed: 'breakAndLog';
   };
   watchdogTimer: {
     enabled: true;
-    intervalMs: 5000;
-    thresholdMs: 3000;
-    onHung: 'restartScene';
+    intervalMs: 5000;            // 每 5 秒检查一次
+    thresholdMs: 3000;           // 3 秒阻塞视为卡死
+    // 分级响应（替代原来的直接 restartScene）：
+    // 第 1 次超时：暂停游戏 + 显示提示「游戏可能卡住，是否继续等待？」
+    // 第 2 次超时（玩家等待后再次卡死）：强制重启场景
+    onFirstTimeout: 'pauseAndPrompt';
+    onSecondTimeout: 'restartScene';
+    saveStateBeforeRestart: true;  // 重启前保存当前状态到临时存档
   };
 }
 ```
 
 ### 11.4.2 渲染安全（→ 4.1 耕种大量作物 / → 4.5 战斗粒子 / → 2.4 地图）
 
+> 以下数值均为**首发基准值**，定义在 `GameConfig.render` 中，后续版本可调整。
+
 ```typescript
 interface RenderSafeguards {
-  maxActiveSprites: { global: 5000; perLayer: 1000; onExceed: 'cullExcess' };
-  particleProtection: { maxParticlesPerEmitter: 200; maxEmittersActive: 20; onExceed: 'recycleOldest' };
-  textureMemoryLimit: { maxTextureMemoryMB: 256; onExceed: 'unloadUnused'; checkInterval: 30 };
-  tileCulling: { viewportBuffer: 2; maxRenderedTiles: 10000 };
+  maxActiveSprites: { global: 5000; perLayer: 1000; onExceed: 'cullExcess' }; // BASELINE
+  particleProtection: { maxParticlesPerEmitter: 200; maxEmittersActive: 20; onExceed: 'recycleOldest' }; // BASELINE
+  textureMemoryLimit: {
+    maxTextureMemoryMB_PC: 256;   // PC BASELINE
+    maxTextureMemoryMB_Mobile: 160; // 手机 BASELINE
+    onExceed: 'unloadUnused';
+    checkInterval: 30;
+  };
+  tileCulling: { viewportBuffer: 2; maxRenderedTiles: 10000 }; // HARD_LIMIT
 }
 ```
 
@@ -1820,21 +1947,48 @@ interface RenderSafeguards {
 
 ```typescript
 interface NetworkSafeguards {
-  rateLimit: { maxMessagesPerSecond: 60; maxBytesPerSecond: 51200; onViolation: 'dropAndWarn'; banThreshold: 10; banDurationMs: 60000 };
-  messageSizeLimit: { maxSingleMessageBytes: 16384; onExceed: 'reject' };
-  connectionTimeout: { initialConnect: 10000; idleDisconnect: 300000; reconnectWindow: 300000 };
-  stateValidation: { validatePosition: true; maxMoveSpeed: 8; validateItemCounts: true; maxMoneyChangePerMinute: 50000 };
+  rateLimit: { maxMessagesPerSecond: 60; maxBytesPerSecond: 51200; onViolation: 'dropAndWarn'; banThreshold: 10; banDurationMs: 60000 }; // HARD_LIMIT
+  messageSizeLimit: { maxSingleMessageBytes: 16384; onExceed: 'reject' }; // HARD_LIMIT
+  connectionTimeout: { initialConnect: 10000; idleDisconnect: 300000; reconnectWindow: 300000 }; // HARD_LIMIT
+  stateValidation: {
+    validatePosition: true;
+    maxMoveSpeed: 8;               // tile/s（HARD_LIMIT）
+    validateItemCounts: true;
+    // 动态金钱变动上限（替代固定 50000），避免批量出货误判：
+    maxMoneyChangePerMinute: {
+      base: 50000;                  // BASELINE
+      dynamic: 'Math.max(base, playerMoney * 0.5)'; // 当前金币的 50%
+    };
+  };
 }
 ```
 
-### 11.4.4 内存与资源安全（→ 4.1~/7. 音频 / → 2.4 地图纹理）
+### 11.4.4 内存与资源安全（→ 4.1 / → 7 音频 / → 2.4 地图纹理）
 
 ```typescript
 interface MemorySafeguards {
-  sceneTransitionCleanup: { clearTextureCache: true; clearSoundInstances: true; clearTweenPool: true; forceGarbageCollection: true };
-  assetLoadTimeout: { perAsset: 15000; onTimeout: 'skipAndLog' };
-  cacheLimit: { maxCachedTexturesMB: 128; maxCachedAudioMB: 64; maxCachedDataItems: 500 };
-  objectPoolLimit: { maxPoolsTotal: 50; maxObjectsPerPool: 500 };
+  sceneTransitionCleanup: {
+    clearTextureCache: true;
+    clearSoundInstances: true;
+    clearTweenPool: true;
+    // 平台自适应 GC 策略（替代原来的 forceGarbageCollection）：
+    garbageCollection: {
+      browser: 'releaseReferences';  // 浏览器端：解除引用 + 清空缓存池，依赖引擎自动回收
+      tauri: 'globalGC';            // Tauri 端：可调用 global.gc()
+      capacitor: 'releaseReferences'; // Capacitor 端：同浏览器
+    };
+  };
+  assetLoadTimeout: { perAsset: 15000; onTimeout: 'skipAndLog' }; // HARD_LIMIT
+  cacheLimit: {
+    // 平台差异化缓存（→ 11.3 平台差异化资源缓存）
+    maxCachedTexturesMB_PC: 128;    // BASELINE
+    maxCachedTexturesMB_Mobile: 80; // BASELINE
+    maxCachedAudioMB_PC: 64;        // BASELINE
+    maxCachedAudioMB_Mobile: 32;    // BASELINE
+    maxCachedDataItems_PC: 500;     // BASELINE
+    maxCachedDataItems_Mobile: 300; // BASELINE
+  };
+  objectPoolLimit: { maxPoolsTotal: 50; maxObjectsPerPool: 500 }; // HARD_LIMIT
 }
 ```
 
@@ -1842,9 +1996,20 @@ interface MemorySafeguards {
 
 ```typescript
 interface DataSafeguards {
-  saveTransaction: { atomicWrite: true; backupBeforeOverwrite: true; maxRetries: 3 };
-  integrityCheck: { checksumAlgorithm: 'sha256'; validateOnLoad: true; validateOnSave: true; autoRepair: false };
-  valueBounds: {
+  saveTransaction: { atomicWrite: true; backupBeforeOverwrite: true; maxRetries: 3 }; // HARD_LIMIT
+  integrityCheck: {
+    checksumAlgorithm: 'sha256';
+    validateOnLoad: true;
+    validateOnSave: true;
+    // 分级自动修复（替代原来的 autoRepair: false）：
+    autoRepair: {
+      valueOutOfRange: 'autoClamp';      // 值越界（如体力 > 999）→ 自动 clamp 到合法范围
+      fieldMissing: 'fillDefault';       // 字段缺失 → 填充默认值并标记「已修复」
+      typeMismatch: 'promptUser';        // 类型不匹配 → 不自动修复，提示用户
+      structuralCorrupt: 'promptUser';   // 结构性损坏 → 不自动修复，提示用户
+    };
+  };
+  valueBounds: {                         // BASELINE（数值可随版本调整）
     money: { min: 0, max: 999999999 };
     energy: { min: 0, max: 999 };
     hp: { min: 0, max: 999 };
@@ -1852,7 +2017,12 @@ interface DataSafeguards {
     itemStackSize: { min: 0, max: 999 };
     skillLevel: { min: 0, max: 10 };
   };
-  recovery: { autoSaveRestore: true; backupSlots: 3; corruptionDetected: 'promptUser' };
+  recovery: { autoSaveRestore: true; backupSlots: 3; corruptionDetected: 'promptUser' }; // HARD_LIMIT
+  saveRateLimit: {                       // 新增：存档操作限流
+    minIntervalMs: 30000;                // 最小存档间隔 30 秒
+    maxSavesPerDay: 100;                 // 单日存档次数上限
+    onExceed: 'skipAndLog';
+  };
 }
 ```
 
@@ -1861,9 +2031,25 @@ interface DataSafeguards {
 ```typescript
 interface LogicSafeguards {
   stateTransitionGuard: { enabled: true; allowedTransitions: Record<string, string[]>; onIllegalTransition: 'revertAndLog' };
-  npcScheduleFallback: { enabled: true; onScheduleNotFound: 'useDefault'; fallbackPosition: { map: '小镇', x: 0, y: 0 } };
+  npcScheduleFallback: {
+    enabled: true;
+    onScheduleNotFound: 'useDefault';
+    // 改为引用每个地图的 safeSpawnPoints 配置表（替代原来的硬编码 0,0）
+    fallbackPosition: 'mapConfig.safeSpawnPoints.npcDefault';
+  };
   questConsistencyCheck: { enabled: true; checkOnLoad: true; autoRepair: true };
   itemIdValidation: { enabled: true; allowUnknownIds: false; onUnknownId: 'rejectAndLog' };
+}
+```
+
+```typescript
+// safeSpawnPoints 配置表示例（每个地图必须定义）
+interface MapConfig {
+  safeSpawnPoints: {
+    playerDefault: { x: number; y: number };   // 玩家默认出生点
+    npcDefault: { x: number; y: number };      // NPC 回退位置
+    emergencyExit: { x: number; y: number };   // 紧急出口（位置异常时用）
+  };
 }
 ```
 
@@ -1871,7 +2057,7 @@ interface LogicSafeguards {
 
 ```typescript
 interface IOSafeguards {
-  fileOperations: { maxFileSizeBytes: 10485760; allowedExtensions: ['.json', '.png', '.wav', '.ogg', '.mp3', '.tsx', '.tmx']; onAccessDenied: 'gracefulFail' };
+  fileOperations: { maxFileSizeBytes: 10485760; allowedExtensions: ['.json', '.png', '.wav', '.ogg', '.mp3', '.tsx', '.tmx']; onAccessDenied: 'gracefulFail' }; // HARD_LIMIT
   settingsFile: { validateOnLoad: true; fallbackOnCorrupt: 'useDefaults'; autoRecover: true };
 }
 ```
@@ -1880,12 +2066,51 @@ interface IOSafeguards {
 
 ```typescript
 interface MultiplayerSafeguards {
-  maxPlayers: { hardLimit: 8; designLimit: 4; onExceed: 'rejectConnection' };
-  hostLoadProtection: { maxClientsPerHost: 4; maxBandwidthPerClient: 51200; onOverload: 'reduceSyncRate'; lastResort: 'disconnectNewest' };
-  messageQueueGuard: { maxQueuedMessages: 1000; onFull: 'dropOldest'; processingBudgetMs: 10 };
-  cheatPrevention: { validateActions: true; rejectInvalidActions: true; maxActionRate: 20; suspiciousThreshold: 50 };
+  maxPlayers: { hardLimit: 8; designLimit: 4; onExceed: 'rejectConnection' }; // HARD_LIMIT
+  hostLoadProtection: {
+    maxClientsPerHost: 4;
+    maxBandwidthPerClient: 51200;
+    // 分级降载策略（替代原来的直接 disconnectNewest）：
+    overloadResponse: [
+      'reduceSyncRate',          // 第 1 级：降低同步频率
+      'disconnectHighestBandwidth', // 第 2 级：踢出带宽最高的客户端
+      'disconnectNewest',        // 第 3 级：踢出最新连接的客户端
+    ];
+  };
+  messageQueueGuard: { maxQueuedMessages: 1000; onFull: 'dropOldest'; processingBudgetMs: 10 }; // HARD_LIMIT
+  cheatPrevention: { validateActions: true; rejectInvalidActions: true; maxActionRate: 20; suspiciousThreshold: 50 }; // BASELINE
 }
 ```
+
+### 11.4.9 输入安全
+
+> 防止快速重复输入、连点、异常高频操作导致的逻辑错误。
+
+```typescript
+interface InputSafeguards {
+  keyDebounceMs: 150;              // 按键防抖（BASELINE）
+  maxPurchasePerSecond: 10;        // 商店购买上限（BASELINE）
+  maxDialogSelectsPerSecond: 5;    // 对话选择节流（BASELINE）
+  maxToolUsePerSecond: 5;          // 工具使用上限（BASELINE）
+  onExceed: 'ignoreAndLog';
+}
+```
+
+### 11.4.10 WebGL 上下文安全
+
+> 手机端尤其容易发生 WebGL 上下文丢失，必须有专项恢复机制。
+
+```typescript
+interface WebGLSafeguards {
+  onContextLost: 'pauseAllRendering';              // 暂停所有渲染
+  onContextRestored: 'reuploadTexturesThenResume'; // 重新上传纹理后恢复
+  maxRecoveryAttempts: 3;                          // 最大恢复尝试次数
+  onRecoveryFailed: 'showErrorAndReturnToMenu';    // 恢复失败则显示错误并返回主菜单
+  saveStateBeforeRecovery: true;                   // 恢复前保存游戏状态到临时存档
+}
+```
+
+---
 
 ## 11.5 错误恢复流程
 
@@ -1893,11 +2118,17 @@ interface MultiplayerSafeguards {
 
 ```typescript
 interface ErrorRecovery {
-  // 存档异常
+  // 存档异常（分级恢复，→ 11.4.5 autoRepair 联动）
   saveCorruption: {
-    detect: 'checksum_mismatch' | 'json_parse_error' | 'field_missing';
-    recover: 'restore_backup' | 'create_new_save' | 'prompt_user';
+    detect: 'checksum_mismatch' | 'json_parse_error' | 'field_missing' | 'type_mismatch' | 'value_out_of_range';
+    recover: {
+      valueOutOfRange: 'auto_clamp';        // 值越界 → 自动 clamp 到合法范围
+      fieldMissing: 'fill_default';         // 字段缺失 → 填充默认值并标记「已修复」
+      typeMismatch: 'prompt_user';          // 类型不匹配 → 提示用户选择：恢复备份 / 新建存档
+      structuralCorrupt: 'prompt_user';     // 结构性损坏 → 提示用户
+    };
     fallback: 'use_autosave';
+    notifyUser: true;                       // 任何自动修复都需通知玩家「存档已自动修复」
   };
 
   // 网络异常
@@ -1914,10 +2145,23 @@ interface ErrorRecovery {
     fallback: 'use_missing_texture_placeholder';
   };
 
-  // 渲染异常
+  // 渲染异常（含 WebGL 上下文丢失专项恢复，→ 11.4.10）
   renderCrash: {
     detect: 'webgl_context_lost' | 'out_of_memory';
-    recover: 'restart_renderer' | 'reduce_quality' | 'reload_scene';
+    recover: {
+      webglContextLost: {
+        step1: 'pauseAllRendering';         // 暂停所有渲染操作
+        step2: 'waitForContextRestored';    // 等待 WebGL context restored 事件
+        step3: 'reuploadTextures';          // 重新上传所有纹理到 GPU
+        step4: 'restoreSceneState';         // 从安全点恢复场景状态
+        maxAttempts: 3;                     // 最多尝试 3 次
+      };
+      outOfMemory: {
+        step1: 'reduceQuality';             // 降低纹理质量
+        step2: 'clearUnusedAssets';         // 清理未使用资源
+        step3: 'reloadScene';               // 重新加载场景
+      };
+    };
     fallback: 'show_error_message_and_exit';
   };
 
@@ -1928,11 +2172,11 @@ interface ErrorRecovery {
     fallback: 'log_and_skip';
   };
 
-  // 玩家位置异常
+  // 玩家位置异常（使用 safeSpawnPoints，→ 11.4.6）
   playerPositionBug: {
     detect: 'outside_map_bounds' | 'inside_collision' | 'below_floor';
     recover: 'teleport_to_spawn' | 'teleport_to_last_safe' | 'nudge_out_of_wall';
-    fallback: 'reset_to_farm_house';
+    fallback: 'reset_to_map_safeSpawnPoints_emergencyExit'; // 引用地图配置的安全出口
   };
 
   // 时间系统异常
@@ -1940,6 +2184,14 @@ interface ErrorRecovery {
     detect: 'time_decreased' | 'time_jumped_forward_1h+' | 'day_skipped';
     recover: 'revert_to_last_valid' | 'clamp_to_valid_range';
     fallback: 'force_sleep_and_save';
+  };
+
+  // 系统崩溃降级（→ 11.2 架构规范）
+  systemCrash: {
+    detect: 'uncaught_exception' | 'update_timeout';
+    recover: 'degradeSystem';               // 标记该系统为降级状态
+    uiFeedback: '该功能暂不可用，请保存并重启游戏';
+    fallback: 'save_and_prompt_restart';
   };
 }
 ```
@@ -1955,6 +2207,7 @@ interface LogSystem {
     safety: boolean;       // 默认开启
     performance: boolean;
     save: boolean;
+    memory: boolean;       // 内存监控日志（默认开启）
   };
   rotation: { maxLogFiles: 7; maxFileSizeMB: 10 };
   safetyLogEntry: {
@@ -1964,6 +2217,17 @@ interface LogSystem {
     thresholdValue: number;
     action: string;
     systemState: string;
+  };
+  // 内存监控日志条目（→ 11.3 内存泄漏检测）
+  memoryLogEntry: {
+    timestamp: number;
+    totalMemoryMB: number;
+    textureCacheMB: number;
+    audioCacheMB: number;
+    objectPoolCount: number;
+    deltaFromLastCheck: number;  // 与上次检查的差值（正数=增长）
+    consecutiveRisingCount: number; // 连续上升次数
+    alertTriggered: boolean;
   };
 }
 ```
@@ -1981,6 +2245,80 @@ interface LogSystem {
 | 手机端内存不足 | 中 | 高 | 纹理缓存上限+场景切换清理（→ 11.4.4） |
 | 多人抢同一块地的冲突 | 低 | 中 | 主机仲裁+客户端回滚（→ 8.4） |
 | 专精选择后无法修改 | 设计 | 低 | 状态机保护+确认弹窗（→ 11.4.6） |
+| 长时间游玩内存泄漏 | 中 | 高 | 内存水位监控+定时检测（→ 11.3/11.6） |
+| 手机端 WebGL 上下文丢失 | 中 | 高 | context restored 自动恢复（→ 11.4.10） |
+| 系统崩溃拖垮整个游戏 | 低 | 极高 | 错误隔离+降级策略（→ 11.2 架构规范） |
+
+## 11.8 游戏配置集中管理
+
+> **核心原则：** 所有游戏数值参数（精灵上限、金钱上限、对象池大小、缓存容量等）统一定义在 `src/config/game-config.ts` 中，按模块分区，标注为「首发基准值」。后续版本调整只需修改此文件，不触及业务逻辑。
+
+```typescript
+/**
+ * 游戏配置集中管理（src/config/game-config.ts）
+ *
+ * 所有「首发基准值（BASELINE）」参数统一定义在此文件，
+ * 业务代码只通过 GameConfig 引用，禁止硬编码。
+ */
+interface GameConfig {
+  render: {
+    maxActiveSprites: number;          // 5000（首发）
+    maxSpritesPerLayer: number;        // 1000
+    maxParticlesPerEmitter: number;    // 200
+    maxEmittersActive: number;         // 20
+    maxRenderedTiles: number;          // 10000
+  };
+  cache: {
+    textureMB_PC: number;              // 128
+    textureMB_Mobile: number;          // 80
+    audioMB_PC: number;                // 64
+    audioMB_Mobile: number;            // 32
+    dataItems_PC: number;              // 500
+    dataItems_Mobile: number;          // 300
+  };
+  economy: {
+    maxMoney: number;                  // 999999999
+    maxItemPrice: number;              // 100000
+    maxDailyIncome: number;            // 500000
+    maxMoneyChangePerMinute_base: number; // 50000
+  };
+  player: {
+    maxEnergy: number;                 // 999
+    maxHp: number;                     // 999
+    maxFriendship: number;             // 2500
+    maxItemStack: number;              // 999
+    maxSkillLevel: number;             // 10
+  };
+  network: {
+    maxMessagesPerSecond: number;      // 60
+    maxBytesPerSecond: number;         // 51200
+    maxSingleMessageBytes: number;     // 16384
+    maxPlayers: number;                // 8
+  };
+  input: {
+    keyDebounceMs: number;             // 150
+    maxPurchasePerSecond: number;      // 10
+    maxToolUsePerSecond: number;       // 5
+  };
+  memory: {
+    leakCheckIntervalMs: number;       // 300000
+    leakRisingThreshold: number;       // 3
+    leakThresholdMB: number;           // 50
+  };
+  save: {
+    minIntervalMs: number;             // 30000
+    maxSavesPerDay: number;            // 100
+    backupSlots: number;               // 3
+  };
+}
+```
+
+```typescript
+// 平台自适应配置加载
+const GameConfig: GameConfig = detectPlatform() === 'mobile'
+  ? { ...baseConfig, ...mobileOverrides }
+  : { ...baseConfig, ...pcOverrides };
+```
 
 ---
 

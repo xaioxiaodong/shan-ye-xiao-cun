@@ -1,0 +1,17 @@
+{
+  "name": "shan-ye-xiao-cun-signaling",
+  "version": "1.0.0",
+  "description": "《山野小村》联机信令服务器 — WebRTC握手 + 房间码管理",
+  "main": "signaling-server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node signaling-server.js",
+    "dev": "node --watch signaling-server.js"
+  },
+  "keywords": ["game", "multiplayer", "signaling", "webrtc"],
+  "author": "xaioxiaodong",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.21.0"
+  }
+}

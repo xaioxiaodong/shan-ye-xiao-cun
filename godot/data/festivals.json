@@ -1,0 +1,54 @@
+[
+  {
+    "id": "spring_festival",
+    "name": "春之祭",
+    "season": "spring",
+    "day": 14,
+    "time": "10:00-18:00",
+    "description": "一年一度的种植比赛！带上你最好的作物来参赛吧。",
+    "participationReward": { "money": 500, "items": [] },
+    "rankRewards": [
+      { "rank": 1, "money": 3000, "items": [{ "itemId": "deluxe_fertilizer", "amount": 5 }] },
+      { "rank": 2, "money": 2000, "items": [{ "itemId": "quality_fertilizer", "amount": 5 }] },
+      { "rank": 3, "money": 1000, "items": [{ "itemId": "basic_fertilizer", "amount": 5 }] }
+    ]
+  },
+  {
+    "id": "summer_fireworks",
+    "name": "夏夜花火",
+    "season": "summer",
+    "day": 14,
+    "time": "18:00-22:00",
+    "description": "夏夜的烟花大会！与镇上的朋友们一起共赏美丽的烟花。",
+    "participationReward": { "money": 300, "items": [] },
+    "rankRewards": []
+  },
+  {
+    "id": "harvest_festival",
+    "name": "丰收节",
+    "season": "fall",
+    "day": 14,
+    "time": "09:00-17:00",
+    "description": "丰收的季节！展示你的工匠产品，争夺最佳农产品称号。",
+    "participationReward": { "money": 1000, "items": [] },
+    "rankRewards": [
+      { "rank": 1, "money": 5000, "items": [{ "itemId": "wine", "amount": 1 }] },
+      { "rank": 2, "money": 3000, "items": [{ "itemId": "deluxe_water_retention_soil", "amount": 5 }] },
+      { "rank": 3, "money": 2000, "items": [{ "itemId": "basic_fertilizer", "amount": 10 }] }
+    ]
+  },
+  {
+    "id": "winter_feast",
+    "name": "冬雪庆典",
+    "season": "winter",
+    "day": 14,
+    "time": "12:00-20:00",
+    "description": "冬日的烹饪比赛和冰雕展！带上你的拿手好菜来参加吧。",
+    "participationReward": { "money": 500, "items": [] },
+    "rankRewards": [
+      { "rank": 1, "money": 3000, "items": [{ "itemId": "herbal_tea", "amount": 1 }] },
+      { "rank": 2, "money": 2000, "items": [{ "itemId": "sugar", "amount": 5 }] },
+      { "rank": 3, "money": 1000, "items": [{ "itemId": "basic_fertilizer", "amount": 5 }] }
+    ]
+  }
+]

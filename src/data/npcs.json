@@ -1,0 +1,796 @@
+﻿[
+  {
+    "id": "xiaolu",
+    "name": "小鹿",
+    "role": "花店女孩",
+    "home": "小镇花店",
+    "birthday": "春7",
+    "lovedGifts": ["rose", "strawberry", "strawberry_cake", "sunflower"],
+    "likedGifts": ["potato", "blue_jazz"],
+    "hatedGifts": ["bug_meat"],
+    "isMarriageable": true,
+    "dialogue": {
+      "greeting": "你好，我是小鹿。欢迎来花店看看！",
+      "hearts2": "今天天气真好，适合出去走走呢。",
+      "hearts5": "见到你总是很开心！最近过得怎么样？",
+      "birthday": "今天是我的生日！谢谢你来看我。",
+      "festival": "节日总是让人心情愉悦呢！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "花店2楼", "activity": "睡觉", "interactable": false },
+        { "time": "800", "location": "花店门口", "activity": "浇花", "interactable": true },
+        { "time": "900", "location": "花店柜台", "activity": "营业", "interactable": true },
+        { "time": "1700", "location": "花店门口", "activity": "收摊", "interactable": true },
+        { "time": "1800", "location": "花店2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "花店2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "花店2楼", "activity": "睡觉", "interactable": false },
+        { "time": "900", "location": "小镇广场", "activity": "散步", "interactable": true },
+        { "time": "1200", "location": "餐厅", "activity": "午餐", "interactable": true },
+        { "time": "1400", "location": "森林", "activity": "采花", "interactable": true },
+        { "time": "1800", "location": "花店2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "花店2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "花店2楼", "activity": "睡觉", "interactable": false },
+        { "time": "800", "location": "花店2楼", "activity": "整理花束", "interactable": true },
+        { "time": "1200", "location": "花店柜台", "activity": "营业", "interactable": true },
+        { "time": "1800", "location": "花店2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "花店2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "花店2楼", "activity": "睡觉", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "花店2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "花店2楼卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "ajie",
+    "name": "阿杰",
+    "role": "森林护林员",
+    "home": "森林小屋",
+    "birthday": "夏11",
+    "lovedGifts": ["sweet_potato", "yam_soup", "roasted_sweet_potato"],
+    "likedGifts": ["carrot", "tomato", "watermelon", "yam"],
+    "hatedGifts": ["crystal_flower"],
+    "isMarriageable": true,
+    "dialogue": {
+      "greeting": "嗯，你好。森林最近很安静。",
+      "hearts2": "森林里的动物们都很温顺，不用担心。",
+      "hearts5": "见到你总是很开心！最近过得怎么样？",
+      "birthday": "今天是我的生日。谢谢你记得。",
+      "festival": "节日总是让人心情愉悦呢！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "森林小屋", "activity": "起床", "interactable": false },
+        { "time": "700", "location": "森林", "activity": "巡逻", "interactable": true },
+        { "time": "1200", "location": "森林小屋", "activity": "午餐", "interactable": true },
+        { "time": "1300", "location": "森林", "activity": "巡逻", "interactable": true },
+        { "time": "1700", "location": "森林小屋", "activity": "整理工具", "interactable": true },
+        { "time": "1800", "location": "森林小屋", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "森林小屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "森林小屋", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "山脚", "activity": "登山", "interactable": true },
+        { "time": "1400", "location": "森林小屋", "activity": "休息", "interactable": true },
+        { "time": "1800", "location": "餐厅", "activity": "晚餐", "interactable": true },
+        { "time": "2200", "location": "森林小屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "森林小屋", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "森林小屋", "activity": "修理工具", "interactable": true },
+        { "time": "1800", "location": "森林小屋", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "森林小屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "森林小屋", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "森林小屋", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "森林小屋卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "lingxi",
+    "name": "灵溪",
+    "role": "图书馆员",
+    "home": "小镇图书馆",
+    "birthday": "秋4",
+    "lovedGifts": ["blueberry", "blueberry_jam", "grape", "wine"],
+    "likedGifts": ["blue_jazz", "snow_lotus"],
+    "hatedGifts": ["hot_pepper", "bug_meat"],
+    "isMarriageable": true,
+    "dialogue": {
+      "greeting": "你好，欢迎来到图书馆。书籍是人类最好的朋友。",
+      "hearts2": "最近在读什么好书吗？",
+      "hearts5": "和你聊天总是让我很开心。",
+      "birthday": "今天是我的生日，谢谢你记得。",
+      "festival": "偶尔放下书本，参加节日也不错呢。"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "图书馆2楼", "activity": "起床整理", "interactable": false },
+        { "time": "800", "location": "图书馆", "activity": "整理书架", "interactable": true },
+        { "time": "1000", "location": "图书馆柜台", "activity": "营业", "interactable": true },
+        { "time": "1800", "location": "小镇广场", "activity": "散步", "interactable": true },
+        { "time": "2000", "location": "图书馆2楼", "activity": "阅读", "interactable": true },
+        { "time": "2200", "location": "图书馆2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "图书馆2楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "图书馆", "activity": "自由阅读", "interactable": true },
+        { "time": "1400", "location": "森林", "activity": "散步", "interactable": true },
+        { "time": "1800", "location": "图书馆2楼", "activity": "阅读", "interactable": true },
+        { "time": "2200", "location": "图书馆2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "图书馆2楼", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "图书馆", "activity": "整理藏书", "interactable": true },
+        { "time": "1800", "location": "图书馆2楼", "activity": "阅读", "interactable": true },
+        { "time": "2200", "location": "图书馆2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "图书馆2楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "图书馆2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "图书馆2楼卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "shitou",
+    "name": "石头",
+    "role": "铁匠学徒",
+    "home": "铁匠铺",
+    "birthday": "冬22",
+    "lovedGifts": ["gold_ingot", "diamond"],
+    "likedGifts": ["hot_pepper", "copper_ore", "autumn_pepper"],
+    "hatedGifts": ["rose", "sunflower", "blue_jazz"],
+    "isMarriageable": true,
+    "dialogue": {
+      "greeting": "嘿！今天打铁打了一整天，手臂都酸了。",
+      "hearts2": "打铁是个技术活，需要耐心和力气。",
+      "hearts5": "见到你总是很开心！最近过得怎么样？",
+      "birthday": "今天是我的生日！谢谢你来看我。",
+      "festival": "节日总是让人心情愉悦呢！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "铁匠铺2楼", "activity": "起床", "interactable": false },
+        { "time": "700", "location": "铁匠铺", "activity": "打铁", "interactable": true },
+        { "time": "1000", "location": "铁匠铺柜台", "activity": "营业", "interactable": true },
+        { "time": "1700", "location": "铁匠铺", "activity": "整理", "interactable": true },
+        { "time": "1800", "location": "餐厅", "activity": "晚餐", "interactable": true },
+        { "time": "2000", "location": "铁匠铺2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "铁匠铺2楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "山脚", "activity": "挖矿", "interactable": true },
+        { "time": "1700", "location": "铁匠铺2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "铁匠铺2楼", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "铁匠铺", "activity": "打铁", "interactable": true },
+        { "time": "1800", "location": "铁匠铺2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺2楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "铁匠铺2楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "铁匠铺2楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺2楼卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "xiaonuan",
+    "name": "小暖",
+    "role": "餐厅服务员",
+    "home": "小镇公寓",
+    "birthday": "春26",
+    "lovedGifts": ["pumpkin_pie", "strawberry_cake", "egg_rice"],
+    "likedGifts": ["tomato", "pumpkin", "ice_berry"],
+    "hatedGifts": ["bug_meat", "monster_loot"],
+    "isMarriageable": true,
+    "dialogue": {
+      "greeting": "欢迎光临！今天想吃点什么吗？",
+      "hearts2": "餐厅的菜谱都是我妈妈传下来的，很有家的味道。",
+      "hearts5": "你每次来我都很开心！",
+      "birthday": "今天是我的生日！要不要来餐厅庆祝一下？",
+      "festival": "节日快乐！今天餐厅有特供餐点哦！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "公寓", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "餐厅", "activity": "工作", "interactable": true },
+        { "time": "1400", "location": "小镇广场", "activity": "散步休息", "interactable": true },
+        { "time": "1600", "location": "餐厅", "activity": "工作", "interactable": true },
+        { "time": "2200", "location": "公寓", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "公寓", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "小镇广场", "activity": "逛街", "interactable": true },
+        { "time": "1200", "location": "餐厅", "activity": "帮忙", "interactable": true },
+        { "time": "1600", "location": "沙滩", "activity": "散步", "interactable": true },
+        { "time": "2000", "location": "公寓", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "公寓", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "公寓", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "餐厅", "activity": "整理", "interactable": true },
+        { "time": "1800", "location": "公寓", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "公寓", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "公寓", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "公寓", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "公寓", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "yufu",
+    "name": "渔夫",
+    "role": "沙滩渔夫",
+    "home": "沙滩小屋",
+    "birthday": "夏27",
+    "lovedGifts": ["seafood_stew", "grilled_fish"],
+    "likedGifts": ["corn", "okra"],
+    "hatedGifts": ["crystal_flower", "rose"],
+    "isMarriageable": true,
+    "dialogue": {
+      "greeting": "嘿！今天海浪不错，要不要出海？",
+      "hearts2": "我在这片海域捕鱼已经二十年了。",
+      "hearts5": "你越来越像个真正的渔民了！",
+      "birthday": "今天是我的生日！来，我请你吃最新鲜的鱼。",
+      "festival": "节日嘛，就该放下渔网，好好享受！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "500", "location": "沙滩小屋", "activity": "起床", "interactable": false },
+        { "time": "700", "location": "沙滩", "activity": "出海捕鱼", "interactable": true },
+        { "time": "1200", "location": "鱼店", "activity": "午餐整理", "interactable": true },
+        { "time": "1400", "location": "鱼店柜台", "activity": "营业", "interactable": true },
+        { "time": "1700", "location": "沙滩", "activity": "散步钓鱼", "interactable": true },
+        { "time": "1900", "location": "沙滩小屋", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "沙滩小屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "500", "location": "沙滩小屋", "activity": "起床", "interactable": false },
+        { "time": "700", "location": "沙滩", "activity": "出海捕鱼", "interactable": true },
+        { "time": "1500", "location": "鱼店", "activity": "整理渔具", "interactable": true },
+        { "time": "1800", "location": "餐厅", "activity": "晚餐", "interactable": true },
+        { "time": "2200", "location": "沙滩小屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "沙滩小屋", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "鱼店", "activity": "修理渔网", "interactable": true },
+        { "time": "1800", "location": "沙滩小屋", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "沙滩小屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "沙滩小屋", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "沙滩小屋", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "沙滩小屋卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "linshen",
+    "name": "林婶",
+    "role": "杂货店老板娘",
+    "home": "杂货店二楼",
+    "birthday": "秋15",
+    "lovedGifts": ["pumpkin_pie", "corn_soup"],
+    "likedGifts": ["wheat", "egg"],
+    "hatedGifts": ["bug_meat"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "欢迎光临杂货店！需要什么种子和材料吗？",
+      "hearts2": "小本生意，靠的就是街坊邻居的照顾。",
+      "hearts5": "你是我见过最勤快的农场主了！",
+      "birthday": "哎呀，今天是我生日，来，送你一包好种子！",
+      "festival": "节日快乐！今天杂货店歇业，一起去玩吧！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "杂货店二楼", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "杂货店", "activity": "整理货架", "interactable": true },
+        { "time": "900", "location": "杂货店柜台", "activity": "营业", "interactable": true },
+        { "time": "1700", "location": "杂货店", "activity": "算账", "interactable": true },
+        { "time": "1900", "location": "杂货店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "杂货店二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "杂货店二楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "小镇广场", "activity": "采购", "interactable": true },
+        { "time": "1200", "location": "餐厅", "activity": "午餐", "interactable": true },
+        { "time": "1400", "location": "杂货店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "杂货店二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "杂货店二楼", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "杂货店", "activity": "盘点库存", "interactable": true },
+        { "time": "1800", "location": "杂货店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "杂货店二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "杂货店二楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "杂货店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "杂货店二楼卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "chenyi",
+    "name": "陈姨",
+    "role": "餐厅老板",
+    "home": "餐厅后厨",
+    "birthday": "冬4",
+    "lovedGifts": ["tomato", "carrot", "pumpkin"],
+    "likedGifts": ["potato", "eggplant", "cabbage"],
+    "hatedGifts": ["bug_meat"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "来啦！今天有什么想吃的？阿姨给你做。",
+      "hearts2": "做菜啊，最重要的就是用心。",
+      "hearts5": "你送来的食材品质真不错！",
+      "birthday": "今天是我生日，来，这碗汤免费请你喝！",
+      "festival": "节日嘛，大家开心最重要，来吃点好的！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "500", "location": "餐厅后厨", "activity": "起床备菜", "interactable": false },
+        { "time": "700", "location": "餐厅后厨", "activity": "准备食材", "interactable": true },
+        { "time": "800", "location": "餐厅", "activity": "营业", "interactable": true },
+        { "time": "1400", "location": "餐厅后厨", "activity": "午休", "interactable": false },
+        { "time": "1600", "location": "餐厅", "activity": "营业", "interactable": true },
+        { "time": "2200", "location": "餐厅后厨", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "餐厅后厨", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "餐厅", "activity": "营业", "interactable": true },
+        { "time": "1400", "location": "餐厅后厨", "activity": "午休", "interactable": false },
+        { "time": "1600", "location": "餐厅", "activity": "营业", "interactable": true },
+        { "time": "2200", "location": "餐厅后厨", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "餐厅后厨", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "餐厅", "activity": "研发新菜", "interactable": true },
+        { "time": "1800", "location": "餐厅后厨", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "餐厅后厨", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "餐厅后厨", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "摆摊", "interactable": true },
+        { "time": "1800", "location": "餐厅后厨", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "餐厅后厨", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "laotie",
+    "name": "老铁",
+    "role": "铁匠铺老板",
+    "home": "铁匠铺二楼",
+    "birthday": "春10",
+    "lovedGifts": ["gold_ingot", "diamond", "iridium_ore"],
+    "likedGifts": ["copper_ore", "iron_ore"],
+    "hatedGifts": ["rose", "flower"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "叮叮当当！需要升级工具吗？老铁我来帮你。",
+      "hearts2": "打了一辈子铁，手艺还算过得去。",
+      "hearts5": "你的工具保养得不错，是个好农夫！",
+      "birthday": "哈哈，今天是我生日！来，给你打个折。",
+      "festival": "难得过节，铁匠铺今天关门！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "铁匠铺二楼", "activity": "起床", "interactable": false },
+        { "time": "700", "location": "铁匠铺", "activity": "打铁", "interactable": true },
+        { "time": "1000", "location": "铁匠铺柜台", "activity": "营业", "interactable": true },
+        { "time": "1700", "location": "铁匠铺", "activity": "收工", "interactable": true },
+        { "time": "1900", "location": "铁匠铺二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "铁匠铺二楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "山脚", "activity": "采矿", "interactable": true },
+        { "time": "1700", "location": "铁匠铺二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "铁匠铺二楼", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "铁匠铺", "activity": "打铁", "interactable": true },
+        { "time": "1800", "location": "铁匠铺二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "铁匠铺二楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "铁匠铺二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "铁匠铺二楼卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "guyisheng",
+    "name": "顾医生",
+    "role": "诊所医生",
+    "home": "诊所",
+    "birthday": "夏20",
+    "lovedGifts": ["snow_lotus", "herbal_tea"],
+    "likedGifts": ["carrot", "winter_root"],
+    "hatedGifts": ["bug_meat", "monster_loot"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "你好，有什么不舒服吗？多注意休息。",
+      "hearts2": "健康是最大的财富，别太劳累。",
+      "hearts5": "你的身体素质越来越好了！",
+      "birthday": "今天是我生日，来做个免费体检吧。",
+      "festival": "节日快乐！不过别玩太疯，注意身体。"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "诊所", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "诊所", "activity": "整理药品", "interactable": true },
+        { "time": "1000", "location": "诊所柜台", "activity": "接诊", "interactable": true },
+        { "time": "1600", "location": "诊所", "activity": "关门整理", "interactable": true },
+        { "time": "2000", "location": "诊所卧室", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "诊所卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "诊所", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "森林", "activity": "采药", "interactable": true },
+        { "time": "1400", "location": "诊所", "activity": "整理药材", "interactable": true },
+        { "time": "1800", "location": "诊所卧室", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "诊所卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "诊所", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "诊所", "activity": "研读医书", "interactable": true },
+        { "time": "1800", "location": "诊所卧室", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "诊所卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "诊所", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "诊所卧室", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "诊所卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "amu",
+    "name": "阿木",
+    "role": "木匠",
+    "home": "森林木匠屋",
+    "birthday": "秋23",
+    "lovedGifts": ["hardwood", "rose"],
+    "likedGifts": ["wheat", "corn"],
+    "hatedGifts": ["bug_meat"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "嗨！需要盖房子还是做家具？找我就对了。",
+      "hearts2": "好木头要慢慢挑，急不得。",
+      "hearts5": "你农场的木材品质不错，适合做家具！",
+      "birthday": "今天是我生日，来，这把木椅送你！",
+      "festival": "节日快乐！木匠屋今天歇业。"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "木匠屋", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "木匠屋门口", "activity": "锯木头", "interactable": true },
+        { "time": "900", "location": "木匠屋柜台", "activity": "营业", "interactable": true },
+        { "time": "1700", "location": "木匠屋", "activity": "收工", "interactable": true },
+        { "time": "2000", "location": "木匠屋卧室", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "木匠屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "木匠屋", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "森林", "activity": "伐木选材", "interactable": true },
+        { "time": "1200", "location": "木匠屋", "activity": "休息", "interactable": true },
+        { "time": "1400", "location": "木匠屋", "activity": "做家具", "interactable": true },
+        { "time": "1800", "location": "餐厅", "activity": "晚餐", "interactable": true },
+        { "time": "2200", "location": "木匠屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "木匠屋", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "木匠屋", "activity": "室内木工", "interactable": true },
+        { "time": "1800", "location": "木匠屋卧室", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "木匠屋卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "木匠屋", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "木匠屋卧室", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "木匠屋卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "weili",
+    "name": "威利",
+    "role": "鱼店老板",
+    "home": "沙滩鱼店",
+    "birthday": "冬8",
+    "lovedGifts": ["grilled_fish", "fish_soup"],
+    "likedGifts": ["okra", "seaweed"],
+    "hatedGifts": ["crystal_flower"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "嘿！想买鱼竿还是鱼饵？我这儿都有！",
+      "hearts2": "钓鱼最重要的是耐心，急不得。",
+      "hearts5": "你钓鱼技术越来越好了，要不要来参加钓鱼大赛？",
+      "birthday": "今天是我生日，这条鱼竿送你！",
+      "festival": "节日快乐！今天鱼店关门，我要去凑热闹！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "鱼店二楼", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "鱼店柜台", "activity": "营业", "interactable": true },
+        { "time": "1700", "location": "鱼店", "activity": "收摊", "interactable": true },
+        { "time": "1800", "location": "沙滩", "activity": "钓鱼", "interactable": true },
+        { "time": "2100", "location": "鱼店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "鱼店二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "500", "location": "鱼店二楼", "activity": "起床", "interactable": false },
+        { "time": "600", "location": "沙滩", "activity": "出海钓鱼", "interactable": true },
+        { "time": "1600", "location": "鱼店", "activity": "整理渔获", "interactable": true },
+        { "time": "2000", "location": "鱼店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "鱼店二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "鱼店二楼", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "鱼店", "activity": "整理渔具", "interactable": true },
+        { "time": "1800", "location": "鱼店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "鱼店二楼卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "鱼店二楼", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "鱼店二楼", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "鱼店二楼卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "apo",
+    "name": "阿婆",
+    "role": "退休教师",
+    "home": "小镇老宅",
+    "birthday": "春19",
+    "lovedGifts": ["blue_jazz", "rose", "sunflower"],
+    "likedGifts": ["strawberry", "grape"],
+    "hatedGifts": ["hot_pepper"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "孩子，来坐坐，阿婆给你讲个故事。",
+      "hearts2": "小镇以前没这么热闹，现在越来越好了。",
+      "hearts5": "你就像我的孙子一样，让我觉得很温暖。",
+      "birthday": "今天是我生日，来，阿婆给你织了条围巾。",
+      "festival": "过节好啊，大家都聚在一起，多热闹。"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "老宅", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "老宅门口", "activity": "晒太阳", "interactable": true },
+        { "time": "1000", "location": "小镇广场", "activity": "散步", "interactable": true },
+        { "time": "1200", "location": "老宅", "activity": "午休", "interactable": false },
+        { "time": "1400", "location": "老宅门口", "activity": "织毛衣", "interactable": true },
+        { "time": "1800", "location": "老宅", "activity": "休息", "interactable": true },
+        { "time": "2100", "location": "老宅卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "老宅", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "小镇广场", "activity": "看热闹", "interactable": true },
+        { "time": "1200", "location": "老宅", "activity": "午休", "interactable": false },
+        { "time": "1500", "location": "花店", "activity": "看花", "interactable": true },
+        { "time": "1800", "location": "老宅", "activity": "休息", "interactable": true },
+        { "time": "2100", "location": "老宅卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "老宅", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "老宅", "activity": "看旧照片", "interactable": true },
+        { "time": "1800", "location": "老宅", "activity": "休息", "interactable": true },
+        { "time": "2100", "location": "老宅卧室", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "老宅", "activity": "起床", "interactable": false },
+        { "time": "1000", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1600", "location": "老宅", "activity": "休息", "interactable": true },
+        { "time": "2100", "location": "老宅卧室", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "xiaopang",
+    "name": "小胖",
+    "role": "杂货店送货员",
+    "home": "小镇",
+    "birthday": "夏5",
+    "lovedGifts": ["strawberry_cake", "pumpkin_pie", "ice_berry_juice"],
+    "likedGifts": ["corn", "watermelon", "egg"],
+    "hatedGifts": ["carrot", "lettuce"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "嘿！需要送货吗？包在我身上！",
+      "hearts2": "送货虽然累，但能到处跑也挺好玩的。",
+      "hearts5": "你是我的好哥们！有什么需要尽管说！",
+      "birthday": "今天是我生日！林婶说今天不用送货，太好了！",
+      "festival": "节日最棒了！有好多好吃的！"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "小镇住处", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "杂货店", "activity": "取货", "interactable": true },
+        { "time": "1000", "location": "小镇", "activity": "送货", "interactable": true },
+        { "time": "1400", "location": "餐厅", "activity": "午餐", "interactable": true },
+        { "time": "1500", "location": "小镇", "activity": "送货", "interactable": true },
+        { "time": "1800", "location": "小镇住处", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "小镇住处", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "小镇住处", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "小镇广场", "activity": "闲逛", "interactable": true },
+        { "time": "1200", "location": "餐厅", "activity": "大餐", "interactable": true },
+        { "time": "1400", "location": "沙滩", "activity": "玩耍", "interactable": true },
+        { "time": "1800", "location": "小镇住处", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "小镇住处", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "小镇住处", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "杂货店", "activity": "帮忙整理", "interactable": true },
+        { "time": "1800", "location": "小镇住处", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "小镇住处", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "小镇住处", "activity": "起床", "interactable": false },
+        { "time": "900", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "1800", "location": "小镇住处", "activity": "休息", "interactable": true },
+        { "time": "2200", "location": "小镇住处", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "fashi",
+    "name": "法师",
+    "role": "神秘隐士",
+    "home": "森林深处",
+    "birthday": "冬14",
+    "lovedGifts": ["crystal_flower", "diamond", "iridium_ore"],
+    "likedGifts": ["snow_lotus", "grape"],
+    "hatedGifts": ["bug_meat"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "……你来了。命运之线将你引向此处。",
+      "hearts2": "森林中隐藏着许多凡人看不见的秘密。",
+      "hearts5": "你的灵魂比大多数人更加纯净。",
+      "birthday": "你记得我的生日？有趣……这很少见。",
+      "festival": "凡人的节日……我偶尔也会感兴趣。"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "法师塔", "activity": "冥想", "interactable": false },
+        { "time": "1000", "location": "法师塔", "activity": "研究魔法", "interactable": true },
+        { "time": "1400", "location": "森林深处", "activity": "采集材料", "interactable": true },
+        { "time": "1800", "location": "法师塔", "activity": "研究", "interactable": true },
+        { "time": "2400", "location": "法师塔", "activity": "冥想", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "法师塔", "activity": "冥想", "interactable": false },
+        { "time": "1000", "location": "法师塔", "activity": "研究", "interactable": true },
+        { "time": "1600", "location": "山脚", "activity": "寻找矿石", "interactable": true },
+        { "time": "2200", "location": "法师塔", "activity": "冥想", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "法师塔", "activity": "冥想", "interactable": false },
+        { "time": "1000", "location": "法师塔", "activity": "炼金实验", "interactable": true },
+        { "time": "2200", "location": "法师塔", "activity": "冥想", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "法师塔", "activity": "冥想", "interactable": false },
+        { "time": "1200", "location": "节日场地", "activity": "暗中观察", "interactable": true },
+        { "time": "1800", "location": "法师塔", "activity": "冥想", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "shangren",
+    "name": "神秘商人",
+    "role": "周游商贩",
+    "home": "不定期出现",
+    "birthday": "秋1",
+    "lovedGifts": ["diamond", "gold_ingot", "iridium_ore"],
+    "likedGifts": ["wine", "grape"],
+    "hatedGifts": ["weed", "trash"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "嘿，旅行者！我这里有些稀有货，要不要看看？",
+      "hearts2": "我去过很多地方，见过很多奇珍异宝。",
+      "hearts5": "你是为数不多值得我信任的顾客。",
+      "birthday": "哈！你居然知道今天是我生日？好吧，给你个特别折扣。",
+      "festival": "有节日的地方就有生意，不是吗？"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "600", "location": "小镇广场", "activity": "摆摊", "interactable": true },
+        { "time": "1800", "location": "小镇广场", "activity": "收摊", "interactable": true },
+        { "time": "2200", "location": "未知", "activity": "离开", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "600", "location": "小镇广场", "activity": "摆摊", "interactable": true },
+        { "time": "1800", "location": "小镇广场", "activity": "收摊", "interactable": true },
+        { "time": "2200", "location": "未知", "activity": "离开", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "600", "location": "未知", "activity": "未出现", "interactable": false }
+      ],
+      "festival": [
+        { "time": "600", "location": "小镇广场", "activity": "摆摊", "interactable": true },
+        { "time": "1800", "location": "节日场地", "activity": "参加节日", "interactable": true },
+        { "time": "2200", "location": "未知", "activity": "离开", "interactable": false }
+      ]
+    }
+  },
+  {
+    "id": "yinshi",
+    "name": "隐士",
+    "role": "山中老人",
+    "home": "山脚山洞",
+    "birthday": "冬28",
+    "lovedGifts": ["snow_lotus", "herbal_tea", "crystal_flower"],
+    "likedGifts": ["winter_root", "ice_berry"],
+    "hatedGifts": ["hot_pepper"],
+    "isMarriageable": false,
+    "dialogue": {
+      "greeting": "……很少有人能找到这里。坐吧。",
+      "hearts2": "山里的生活很简单，但很充实。",
+      "hearts5": "你带来了山外的新鲜空气，让我想起了年轻的时光。",
+      "birthday": "今天是我的生日？我已经很久没有过生日了。",
+      "festival": "山下的热闹……偶尔看看也不错。"
+    },
+    "schedule": {
+      "weekday": [
+        { "time": "500", "location": "山洞", "activity": "起床", "interactable": false },
+        { "time": "700", "location": "山脚", "activity": "采药", "interactable": true },
+        { "time": "1200", "location": "山洞", "activity": "制药", "interactable": true },
+        { "time": "1600", "location": "山脚", "activity": "散步", "interactable": true },
+        { "time": "1900", "location": "山洞", "activity": "冥想", "interactable": false },
+        { "time": "2100", "location": "山洞", "activity": "睡觉", "interactable": false }
+      ],
+      "weekend": [
+        { "time": "500", "location": "山洞", "activity": "起床", "interactable": false },
+        { "time": "700", "location": "山脚", "activity": "采药", "interactable": true },
+        { "time": "1400", "location": "山洞", "activity": "制药", "interactable": true },
+        { "time": "1800", "location": "山洞", "activity": "冥想", "interactable": false },
+        { "time": "2100", "location": "山洞", "activity": "睡觉", "interactable": false }
+      ],
+      "rainy": [
+        { "time": "500", "location": "山洞", "activity": "起床", "interactable": false },
+        { "time": "800", "location": "山洞", "activity": "制药", "interactable": true },
+        { "time": "1800", "location": "山洞", "activity": "冥想", "interactable": false },
+        { "time": "2100", "location": "山洞", "activity": "睡觉", "interactable": false }
+      ],
+      "festival": [
+        { "time": "500", "location": "山洞", "activity": "起床", "interactable": false },
+        { "time": "1000", "location": "节日场地", "activity": "远远观望", "interactable": true },
+        { "time": "1600", "location": "山洞", "activity": "休息", "interactable": false },
+        { "time": "2100", "location": "山洞", "activity": "睡觉", "interactable": false }
+      ]
+    }
+  }
+]

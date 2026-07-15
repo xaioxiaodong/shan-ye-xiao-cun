@@ -1,0 +1,410 @@
+[
+  {
+    "id": "garden_salad",
+    "name": "田园沙拉",
+    "ingredients": [
+      { "itemId": "lettuce", "amount": 1 },
+      { "itemId": "tomato", "amount": 1 }
+    ],
+    "restoreEnergy": 50,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 100,
+    "giftPreference": { "xiaolu": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "hash_browns",
+    "name": "薯饼",
+    "ingredients": [
+      { "itemId": "potato", "amount": 2 }
+    ],
+    "restoreEnergy": 60,
+    "restoreHP": 0,
+    "buff": { "type": "speed", "value": 1, "duration": 300 },
+    "basePrice": 160,
+    "giftPreference": { "ajie": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "tomato_soup",
+    "name": "番茄浓汤",
+    "ingredients": [
+      { "itemId": "tomato", "amount": 3 },
+      { "itemId": "carrot", "amount": 1 }
+    ],
+    "restoreEnergy": 80,
+    "restoreHP": 0,
+    "buff": { "type": "farming", "value": 1, "duration": 400 },
+    "basePrice": 200,
+    "giftPreference": { "linshen": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "grilled_fish",
+    "name": "烤鱼",
+    "ingredients": [
+      { "itemId": "crucian_carp", "amount": 2 }
+    ],
+    "restoreEnergy": 75,
+    "restoreHP": 0,
+    "buff": { "type": "fishing", "value": 1, "duration": 400 },
+    "basePrice": 180,
+    "giftPreference": { "weili": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "strawberry_cake",
+    "name": "草莓蛋糕",
+    "ingredients": [
+      { "itemId": "strawberry", "amount": 3 },
+      { "itemId": "wheat", "amount": 2 },
+      { "itemId": "egg", "amount": 1 }
+    ],
+    "restoreEnergy": 100,
+    "restoreHP": 0,
+    "buff": { "type": "luck", "value": 1, "duration": 300 },
+    "basePrice": 300,
+    "giftPreference": { "xiaolu": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "warrior_stew",
+    "name": "战士烩",
+    "ingredients": [
+      { "itemId": "bug_meat", "amount": 3 },
+      { "itemId": "hot_pepper", "amount": 2 }
+    ],
+    "restoreEnergy": 120,
+    "restoreHP": 0,
+    "buff": { "type": "combat", "value": 2, "duration": 400 },
+    "basePrice": 280,
+    "giftPreference": { "shitou": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "blueberry_jam",
+    "name": "蓝莓酱",
+    "ingredients": [
+      { "itemId": "blueberry", "amount": 5 }
+    ],
+    "restoreEnergy": 40,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 250,
+    "giftPreference": { "lingxi": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "pumpkin_pie",
+    "name": "南瓜饼",
+    "ingredients": [
+      { "itemId": "pumpkin", "amount": 1 },
+      { "itemId": "wheat", "amount": 2 }
+    ],
+    "restoreEnergy": 90,
+    "restoreHP": 0,
+    "buff": { "type": "defense", "value": 1, "duration": 300 },
+    "basePrice": 240,
+    "giftPreference": { "xiaonuan": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "bread",
+    "name": "面包",
+    "ingredients": [
+      { "itemId": "wheat", "amount": 3 }
+    ],
+    "restoreEnergy": 30,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 60,
+    "giftPreference": { "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "carrot_soup",
+    "name": "胡萝卜汤",
+    "ingredients": [
+      { "itemId": "carrot", "amount": 3 },
+      { "itemId": "milk", "amount": 1 }
+    ],
+    "restoreEnergy": 70,
+    "restoreHP": 0,
+    "buff": { "type": "mining", "value": 1, "duration": 400 },
+    "basePrice": 170,
+    "giftPreference": { "ajie": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "red_bean_soup",
+    "name": "红豆汤",
+    "ingredients": [
+      { "itemId": "red_bean", "amount": 3 }
+    ],
+    "restoreEnergy": 50,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 130,
+    "giftPreference": { "xiaonuan": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "grilled_eggplant",
+    "name": "烤茄子",
+    "ingredients": [
+      { "itemId": "eggplant", "amount": 2 }
+    ],
+    "restoreEnergy": 55,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 120,
+    "giftPreference": { "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "kimchi",
+    "name": "泡菜",
+    "ingredients": [
+      { "itemId": "cabbage", "amount": 3 }
+    ],
+    "restoreEnergy": 35,
+    "restoreHP": 0,
+    "buff": { "type": "farming", "value": 1, "duration": 300 },
+    "basePrice": 150,
+    "giftPreference": { "shitou": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "yam_soup",
+    "name": "山药汤",
+    "ingredients": [
+      { "itemId": "yam", "amount": 3 }
+    ],
+    "restoreEnergy": 65,
+    "restoreHP": 0,
+    "buff": { "type": "speed", "value": 1, "duration": 300 },
+    "basePrice": 150,
+    "giftPreference": { "ajie": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "corn_soup",
+    "name": "玉米浓汤",
+    "ingredients": [
+      { "itemId": "corn", "amount": 3 },
+      { "itemId": "milk", "amount": 1 }
+    ],
+    "restoreEnergy": 85,
+    "restoreHP": 0,
+    "buff": { "type": "farming", "value": 1, "duration": 400 },
+    "basePrice": 190,
+    "giftPreference": { "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "juice",
+    "name": "果汁",
+    "ingredients": [
+      { "itemId": "watermelon", "amount": 3 }
+    ],
+    "restoreEnergy": 45,
+    "restoreHP": 0,
+    "buff": { "type": "luck", "value": 1, "duration": 200 },
+    "basePrice": 250,
+    "giftPreference": { "xiaonuan": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "ice_berry_juice",
+    "name": "冰莓汁",
+    "ingredients": [
+      { "itemId": "ice_berry", "amount": 3 }
+    ],
+    "restoreEnergy": 50,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 200,
+    "giftPreference": { "xiaonuan": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "spicy_stew",
+    "name": "辣味炖菜",
+    "ingredients": [
+      { "itemId": "hot_pepper", "amount": 3 },
+      { "itemId": "tomato", "amount": 1 }
+    ],
+    "restoreEnergy": 95,
+    "restoreHP": 0,
+    "buff": { "type": "combat", "value": 1, "duration": 400 },
+    "basePrice": 210,
+    "giftPreference": { "shitou": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "herbal_tea",
+    "name": "药茶",
+    "ingredients": [
+      { "itemId": "snow_lotus", "amount": 1 }
+    ],
+    "restoreEnergy": 60,
+    "restoreHP": 0,
+    "buff": { "type": "mining", "value": 1, "duration": 300 },
+    "basePrice": 300,
+    "giftPreference": { "yinshi": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "curry",
+    "name": "咖喱",
+    "ingredients": [
+      { "itemId": "hot_pepper", "amount": 2 },
+      { "itemId": "potato", "amount": 1 },
+      { "itemId": "carrot", "amount": 1 },
+      { "itemId": "wheat", "amount": 2 }
+    ],
+    "restoreEnergy": 110,
+    "restoreHP": 0,
+    "buff": { "type": "speed", "value": 2, "duration": 400 },
+    "basePrice": 350,
+    "giftPreference": { "ajie": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "fried_egg",
+    "name": "煎蛋",
+    "ingredients": [
+      { "itemId": "egg", "amount": 1 }
+    ],
+    "restoreEnergy": 30,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 50,
+    "giftPreference": { "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "pea_porridge",
+    "name": "豌豆粥",
+    "ingredients": [
+      { "itemId": "pea", "amount": 3 }
+    ],
+    "restoreEnergy": 55,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 120,
+    "giftPreference": { "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "okra_soup",
+    "name": "秋葵汤",
+    "ingredients": [
+      { "itemId": "okra", "amount": 2 },
+      { "itemId": "tomato", "amount": 1 }
+    ],
+    "restoreEnergy": 75,
+    "restoreHP": 0,
+    "buff": { "type": "farming", "value": 1, "duration": 300 },
+    "basePrice": 160,
+    "giftPreference": { "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "roasted_sweet_potato",
+    "name": "烤红薯",
+    "ingredients": [
+      { "itemId": "sweet_potato", "amount": 2 }
+    ],
+    "restoreEnergy": 65,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 180,
+    "giftPreference": { "ajie": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "honey_tea",
+    "name": "蜂蜜茶",
+    "ingredients": [
+      { "itemId": "honey", "amount": 1 }
+    ],
+    "restoreEnergy": 40,
+    "restoreHP": 0,
+    "buff": { "type": "mining", "value": 1, "duration": 200 },
+    "basePrice": 100,
+    "giftPreference": { "yinshi": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "fruit_salad",
+    "name": "水果沙拉",
+    "ingredients": [
+      { "itemId": "strawberry", "amount": 1 },
+      { "itemId": "blueberry", "amount": 1 },
+      { "itemId": "watermelon", "amount": 1 }
+    ],
+    "restoreEnergy": 70,
+    "restoreHP": 0,
+    "buff": { "type": "luck", "value": 1, "duration": 300 },
+    "basePrice": 200,
+    "giftPreference": { "xiaolu": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "fish_soup",
+    "name": "鱼汤",
+    "ingredients": [
+      { "itemId": "crucian_carp", "amount": 2 }
+    ],
+    "restoreEnergy": 80,
+    "restoreHP": 0,
+    "buff": { "type": "fishing", "value": 1, "duration": 300 },
+    "basePrice": 170,
+    "giftPreference": { "weili": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "mushroom_soup",
+    "name": "蘑菇汤",
+    "ingredients": [
+      { "itemId": "mushroom", "amount": 3 },
+      { "itemId": "milk", "amount": 1 }
+    ],
+    "restoreEnergy": 65,
+    "restoreHP": 0,
+    "buff": null,
+    "basePrice": 140,
+    "giftPreference": { "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "egg_rice",
+    "name": "蛋包饭",
+    "ingredients": [
+      { "itemId": "egg", "amount": 2 },
+      { "itemId": "wheat", "amount": 2 }
+    ],
+    "restoreEnergy": 85,
+    "restoreHP": 0,
+    "buff": { "type": "speed", "value": 1, "duration": 300 },
+    "basePrice": 200,
+    "giftPreference": { "xiaonuan": "love", "default": "neutral" },
+    "unlockCondition": "default"
+  },
+  {
+    "id": "spicy_bug",
+    "name": "辣椒炒虫",
+    "ingredients": [
+      { "itemId": "hot_pepper", "amount": 2 },
+      { "itemId": "bug_meat", "amount": 2 }
+    ],
+    "restoreEnergy": 90,
+    "restoreHP": 0,
+    "buff": { "type": "combat", "value": 1, "duration": 300 },
+    "basePrice": 190,
+    "giftPreference": { "shitou": "like", "default": "neutral" },
+    "unlockCondition": "default"
+  }
+]

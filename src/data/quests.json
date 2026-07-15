@@ -1,0 +1,258 @@
+[
+  {
+    "id": "main_ch1_arrive",
+    "type": "main",
+    "title": "初来乍到",
+    "description": "你收到了远房亲戚的信，来到了青溪镇。先去农场看看吧。",
+    "objectives": [
+      { "type": "talk", "targetId": "apo", "requiredAmount": 1 }
+    ],
+    "rewards": { "money": 100, "items": [{ "itemId": "parsnip_seed", "amount": 5 }] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "main_ch1_tools",
+    "type": "main",
+    "title": "认识工具",
+    "description": "阿婆给了你一些基础工具，试着翻地、播种、浇水吧。",
+    "objectives": [
+      { "type": "collect", "targetId": "parsnip", "requiredAmount": 3 }
+    ],
+    "rewards": { "money": 200, "items": [] },
+    "prerequisites": { "questIds": ["main_ch1_arrive"], "season": "spring" }
+  },
+  {
+    "id": "main_ch1_meet_town",
+    "type": "main",
+    "title": "认识小镇",
+    "description": "去小镇认识一下邻居们吧。与小鹿、阿杰和石头对话。",
+    "objectives": [
+      { "type": "talk", "targetId": "xiaolu", "requiredAmount": 1 },
+      { "type": "talk", "targetId": "ajie", "requiredAmount": 1 },
+      { "type": "talk", "targetId": "shitou", "requiredAmount": 1 }
+    ],
+    "rewards": { "money": 300, "items": [{ "itemId": "potato_seed", "amount": 5 }] },
+    "prerequisites": { "questIds": ["main_ch1_tools"], "season": null }
+  },
+  {
+    "id": "main_ch2_community",
+    "type": "main",
+    "title": "社区中心",
+    "description": "阿婆带你去看了废弃的社区中心。也许可以帮忙修复它？",
+    "objectives": [
+      { "type": "talk", "targetId": "apo", "requiredAmount": 1 }
+    ],
+    "rewards": { "money": 500, "items": [] },
+    "prerequisites": { "questIds": ["main_ch1_meet_town"], "season": null }
+  },
+  {
+    "id": "main_ch2_spring_crops",
+    "type": "main",
+    "title": "春季作物献祭",
+    "description": "社区中心春季作物房需要献祭春季作物。",
+    "objectives": [
+      { "type": "collect", "targetId": "parsnip", "requiredAmount": 5 },
+      { "type": "collect", "targetId": "potato", "requiredAmount": 5 },
+      { "type": "collect", "targetId": "tomato", "requiredAmount": 5 }
+    ],
+    "rewards": { "money": 500, "items": [{ "itemId": "speed_gro", "amount": 5 }] },
+    "prerequisites": { "questIds": ["main_ch2_community"], "season": "spring" }
+  },
+  {
+    "id": "main_ch3_mine",
+    "type": "main",
+    "title": "矿洞修复",
+    "description": "山脚的矿洞入口已经修复。下去探索 10 层吧！",
+    "objectives": [
+      { "type": "collect", "targetId": "copper_ore", "requiredAmount": 10 }
+    ],
+    "rewards": { "money": 1000, "items": [{ "itemId": "rusty_sword", "amount": 1 }] },
+    "prerequisites": { "questIds": ["main_ch2_spring_crops"], "season": null }
+  },
+  {
+    "id": "main_ch3_mine_deep",
+    "type": "main",
+    "title": "深入矿洞",
+    "description": "继续深入矿洞，到达 30 层。",
+    "objectives": [
+      { "type": "collect", "targetId": "iron_ore", "requiredAmount": 15 }
+    ],
+    "rewards": { "money": 2000, "items": [{ "itemId": "steel_sword", "amount": 1 }] },
+    "prerequisites": { "questIds": ["main_ch3_mine"], "season": null }
+  },
+  {
+    "id": "main_ch4_summer_crops",
+    "type": "main",
+    "title": "夏季作物献祭",
+    "description": "社区中心夏季作物房需要献祭夏季作物。",
+    "objectives": [
+      { "type": "collect", "targetId": "blueberry", "requiredAmount": 5 },
+      { "type": "collect", "targetId": "corn", "requiredAmount": 5 },
+      { "type": "collect", "targetId": "pumpkin", "requiredAmount": 5 }
+    ],
+    "rewards": { "money": 1000, "items": [{ "itemId": "deluxe_speed_gro", "amount": 5 }] },
+    "prerequisites": { "questIds": ["main_ch3_mine_deep"], "season": "summer" }
+  },
+  {
+    "id": "main_ch4_fall_crops",
+    "type": "main",
+    "title": "秋季作物献祭",
+    "description": "社区中心秋季作物房需要献祭秋季作物。",
+    "objectives": [
+      { "type": "collect", "targetId": "eggplant", "requiredAmount": 5 },
+      { "type": "collect", "targetId": "cabbage", "requiredAmount": 5 },
+      { "type": "collect", "targetId": "sweet_potato", "requiredAmount": 5 }
+    ],
+    "rewards": { "money": 1000, "items": [{ "itemId": "water_retention_soil", "amount": 5 }] },
+    "prerequisites": { "questIds": ["main_ch4_summer_crops"], "season": "fall" }
+  },
+  {
+    "id": "main_ch5_final",
+    "type": "main",
+    "title": "新的开始",
+    "description": "社区中心已全面修复！银沙湾码头也已修好，可以前往雾岛了。",
+    "objectives": [
+      { "type": "talk", "targetId": "weili", "requiredAmount": 1 }
+    ],
+    "rewards": { "money": 5000, "items": [{ "itemId": "galaxy_sword", "amount": 1 }] },
+    "prerequisites": { "questIds": ["main_ch4_fall_crops"], "season": null }
+  },
+  {
+    "id": "side_xiaolu_flower",
+    "type": "side",
+    "title": "小鹿的花",
+    "description": "小鹿想请你帮忙收集一些花朵。",
+    "objectives": [
+      { "type": "collect", "targetId": "blue_jazz", "requiredAmount": 3 }
+    ],
+    "rewards": { "money": 300, "items": [{ "itemId": "sunflower", "amount": 1 }] },
+    "prerequisites": { "questIds": [], "season": "spring" }
+  },
+  {
+    "id": "side_ajie_wood",
+    "type": "side",
+    "title": "阿杰的护林",
+    "description": "阿杰需要一些木材来修复森林小屋。",
+    "objectives": [
+      { "type": "collect", "targetId": "wood", "requiredAmount": 50 }
+    ],
+    "rewards": { "money": 400, "items": [{ "itemId": "hardwood", "amount": 5 }] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "side_lingxi_book",
+    "type": "side",
+    "title": "灵溪的藏书",
+    "description": "灵溪图书馆需要整理一些遗失的书籍。",
+    "objectives": [
+      { "type": "talk", "targetId": "fashi", "requiredAmount": 1 }
+    ],
+    "rewards": { "money": 500, "items": [] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "side_shitou_ore",
+    "type": "side",
+    "title": "石头的矿石",
+    "description": "石头需要一些铜矿石来练习打铁。",
+    "objectives": [
+      { "type": "collect", "targetId": "copper_ore", "requiredAmount": 10 }
+    ],
+    "rewards": { "money": 300, "items": [{ "itemId": "copper_ingot", "amount": 2 }] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "side_xiaonuan_cook",
+    "type": "side",
+    "title": "小暖的厨房",
+    "description": "小暖想尝试做一道新菜，需要一些食材。",
+    "objectives": [
+      { "type": "collect", "targetId": "tomato", "requiredAmount": 5 }
+    ],
+    "rewards": { "money": 400, "items": [{ "itemId": "egg", "amount": 3 }] },
+    "prerequisites": { "questIds": [], "season": "spring" }
+  },
+  {
+    "id": "side_yufu_fish",
+    "type": "side",
+    "title": "渔夫的挑战",
+    "description": "渔夫想看看你的钓鱼技术。",
+    "objectives": [
+      { "type": "fish", "targetId": "carp", "requiredAmount": 3 }
+    ],
+    "rewards": { "money": 500, "items": [] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "daily_collect_crops",
+    "type": "daily",
+    "title": "求助：收集作物",
+    "description": "小镇居民需要一些作物，快去帮忙吧！",
+    "objectives": [
+      { "type": "collect", "targetId": "parsnip", "requiredAmount": 3 }
+    ],
+    "rewards": { "money": 150, "items": [] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "daily_deliver_item",
+    "type": "daily",
+    "title": "求助：运送物品",
+    "description": "有人需要帮忙运送物品。",
+    "objectives": [
+      { "type": "deliver", "targetId": "wood", "requiredAmount": 10 }
+    ],
+    "rewards": { "money": 100, "items": [] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "daily_fish_quest",
+    "type": "daily",
+    "title": "求助：钓鱼",
+    "description": "威利需要一些鱼来做鱼饵。",
+    "objectives": [
+      { "type": "fish", "targetId": "carp", "requiredAmount": 2 }
+    ],
+    "rewards": { "money": 200, "items": [] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "daily_kill_monster",
+    "type": "daily",
+    "title": "求助：清理矿洞",
+    "description": "矿洞里有怪物出没，需要清理。",
+    "objectives": [
+      { "type": "kill", "targetId": "green_slime", "requiredAmount": 5 }
+    ],
+    "rewards": { "money": 300, "items": [] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "daily_craft_item",
+    "type": "daily",
+    "title": "求助：合成物品",
+    "description": "有人需要一些合成物品。",
+    "objectives": [
+      { "type": "craft", "targetId": "torch", "requiredAmount": 3 }
+    ],
+    "rewards": { "money": 150, "items": [] },
+    "prerequisites": { "questIds": [], "season": null }
+  },
+  {
+    "id": "collection_spring_crops",
+    "type": "collection",
+    "title": "春季作物收集",
+    "description": "博物馆想要收集所有春季作物样本。",
+    "objectives": [
+      { "type": "collect", "targetId": "parsnip", "requiredAmount": 1 },
+      { "type": "collect", "targetId": "potato", "requiredAmount": 1 },
+      { "type": "collect", "targetId": "strawberry", "requiredAmount": 1 },
+      { "type": "collect", "targetId": "tomato", "requiredAmount": 1 },
+      { "type": "collect", "targetId": "carrot", "requiredAmount": 1 },
+      { "type": "collect", "targetId": "lettuce", "requiredAmount": 1 },
+      { "type": "collect", "targetId": "pea", "requiredAmount": 1 }
+    ],
+    "rewards": { "money": 2000, "items": [{ "itemId": "deluxe_fertilizer", "amount": 5 }] },
+    "prerequisites": { "questIds": [], "season": "spring" }
+  }
+]

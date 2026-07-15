@@ -1,0 +1,452 @@
+[
+  {
+    "id": "copper_ore",
+    "name": "铜矿石",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 5,
+    "description": "常见的铜矿石，可以熔炼成铜锭。",
+    "sellable": true
+  },
+  {
+    "id": "iron_ore",
+    "name": "铁矿石",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 10,
+    "description": "常见的铁矿石，可以熔炼成铁锭。",
+    "sellable": true
+  },
+  {
+    "id": "gold_ore",
+    "name": "金矿石",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 25,
+    "description": "闪闪发光的金矿石，可以熔炼成金锭。",
+    "sellable": true
+  },
+  {
+    "id": "iridium_ore",
+    "name": "铱矿石",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 100,
+    "description": "稀有的铱矿石，可以熔炼成铱锭。",
+    "sellable": true
+  },
+  {
+    "id": "coal",
+    "name": "煤炭",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 15,
+    "description": "常用的燃料，用于熔炉和合成。",
+    "sellable": true
+  },
+  {
+    "id": "copper_ingot",
+    "name": "铜锭",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 60,
+    "description": "由铜矿石熔炼而成的金属锭。",
+    "sellable": true
+  },
+  {
+    "id": "iron_ingot",
+    "name": "铁锭",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 120,
+    "description": "由铁矿石熔炼而成的金属锭。",
+    "sellable": true
+  },
+  {
+    "id": "gold_ingot",
+    "name": "金锭",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 250,
+    "description": "由金矿石熔炼而成的金属锭。",
+    "sellable": true
+  },
+  {
+    "id": "iridium_ingot",
+    "name": "铱锭",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 1000,
+    "description": "由铱矿石熔炼而成的顶级金属锭。",
+    "sellable": true
+  },
+  {
+    "id": "diamond",
+    "name": "钻石",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 750,
+    "description": "珍贵的宝石，闪闪发光。",
+    "sellable": true
+  },
+  {
+    "id": "ruby",
+    "name": "红宝石",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 250,
+    "description": "红色的宝石，可用于合成戒指。",
+    "sellable": true
+  },
+  {
+    "id": "emerald",
+    "name": "绿宝石",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 250,
+    "description": "翠绿色的宝石，深受收藏家喜爱。",
+    "sellable": true
+  },
+  {
+    "id": "amethyst",
+    "name": "紫水晶",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 100,
+    "description": "紫色的水晶，散发着神秘的光芒。",
+    "sellable": true
+  },
+  {
+    "id": "topaz",
+    "name": "黄玉",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 80,
+    "description": "金黄色的宝石，温暖明亮。",
+    "sellable": true
+  },
+  {
+    "id": "wood",
+    "name": "木材",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 2,
+    "description": "普通的木材，用于建造和合成。",
+    "sellable": true
+  },
+  {
+    "id": "hardwood",
+    "name": "硬木",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 15,
+    "description": "坚硬的木材，高级建筑和家具的必备材料。",
+    "sellable": true
+  },
+  {
+    "id": "stone",
+    "name": "石头",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 2,
+    "description": "普通的石头，用于建造和合成。",
+    "sellable": true
+  },
+  {
+    "id": "clay",
+    "name": "黏土",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 20,
+    "description": "湿润的黏土，可用于建造筒仓。",
+    "sellable": true
+  },
+  {
+    "id": "fiber",
+    "name": "纤维",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 1,
+    "description": "植物纤维，基础合成材料。",
+    "sellable": true
+  },
+  {
+    "id": "sap",
+    "name": "树液",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 2,
+    "description": "从树上采集的树液，可用于制作火把。",
+    "sellable": true
+  },
+  {
+    "id": "battery_pack",
+    "name": "电池棒",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 500,
+    "description": "由避雷针在雷暴后生产的电池，高级合成材料。",
+    "sellable": true
+  },
+  {
+    "id": "refined_quartz",
+    "name": "精炼石英",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 50,
+    "description": "经过精炼的石英，用于高级合成。",
+    "sellable": true
+  },
+  {
+    "id": "slime",
+    "name": "史莱姆泥",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 5,
+    "description": "从史莱姆身上掉落的粘稠物质。",
+    "sellable": true
+  },
+  {
+    "id": "bat_wing",
+    "name": "蝙蝠翅膀",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 15,
+    "description": "蝙蝠的翅膀，可用于合成避雷针。",
+    "sellable": true
+  },
+  {
+    "id": "bone",
+    "name": "骨头",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 10,
+    "description": "骷髅留下的骨头，可用于合成肥料。",
+    "sellable": true
+  },
+  {
+    "id": "crab_shell",
+    "name": "蟹壳",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 100,
+    "description": "岩石蟹的坚硬外壳。",
+    "sellable": true
+  },
+  {
+    "id": "bug_meat",
+    "name": "虫肉",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 8,
+    "description": "从飞虫身上获得的肉，可用于烹饪。",
+    "sellable": true
+  },
+  {
+    "id": "void_essence",
+    "name": "虚空精华",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 50,
+    "description": "暗影之子掉落的黑暗精华，充满神秘力量。",
+    "sellable": true
+  },
+  {
+    "id": "magma_ore",
+    "name": "岩浆矿",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 80,
+    "description": "岩浆精灵掉落的高温矿石。",
+    "sellable": true
+  },
+  {
+    "id": "fire_crystal",
+    "name": "火晶石",
+    "category": "drop",
+    "maxStack": 999,
+    "basePrice": 150,
+    "description": "岩浆精灵掉落的稀有水晶，蕴含着火焰的力量。",
+    "sellable": true
+  },
+  {
+    "id": "basic_fertilizer",
+    "name": "基础肥料",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 50,
+    "description": "基础肥料，银星概率 +10%。",
+    "sellable": true
+  },
+  {
+    "id": "quality_fertilizer",
+    "name": "高级肥料",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 100,
+    "description": "高级肥料，金星概率 +15%。",
+    "sellable": true
+  },
+  {
+    "id": "deluxe_fertilizer",
+    "name": "豪华肥料",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 200,
+    "description": "豪华肥料，铱星概率 +10%。",
+    "sellable": true
+  },
+  {
+    "id": "speed_gro",
+    "name": "生长激素",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 80,
+    "description": "加速作物生长 10%。",
+    "sellable": true
+  },
+  {
+    "id": "deluxe_speed_gro",
+    "name": "高级生长激素",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 150,
+    "description": "加速作物生长 20%。",
+    "sellable": true
+  },
+  {
+    "id": "water_retention_soil",
+    "name": "保湿土",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 60,
+    "description": "每天 30% 概率不消耗水。",
+    "sellable": true
+  },
+  {
+    "id": "deluxe_water_retention_soil",
+    "name": "高级保湿土",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 120,
+    "description": "每天 60% 概率不消耗水。",
+    "sellable": true
+  },
+  {
+    "id": "parsnip_seed",
+    "name": "防风草种子",
+    "category": "seed",
+    "maxStack": 999,
+    "basePrice": 20,
+    "description": "春季播种，4 天成熟。",
+    "sellable": true
+  },
+  {
+    "id": "potato_seed",
+    "name": "土豆种子",
+    "category": "seed",
+    "maxStack": 999,
+    "basePrice": 30,
+    "description": "春季播种，6 天成熟。",
+    "sellable": true
+  },
+  {
+    "id": "strawberry_seed",
+    "name": "草莓种子",
+    "category": "seed",
+    "maxStack": 999,
+    "basePrice": 60,
+    "description": "春季播种，8 天成熟，可多次收获。",
+    "sellable": true
+  },
+  {
+    "id": "blue_jazz_seed",
+    "name": "蓝调草种子",
+    "category": "seed",
+    "maxStack": 999,
+    "basePrice": 25,
+    "description": "春季播种，7 天成熟。",
+    "sellable": true
+  },
+  {
+    "id": "tomato_seed",
+    "name": "番茄种子",
+    "category": "seed",
+    "maxStack": 999,
+    "basePrice": 30,
+    "description": "春季播种，11 天成熟，可多次收获。",
+    "sellable": true
+  },
+  {
+    "id": "carrot_seed",
+    "name": "胡萝卜种子",
+    "category": "seed",
+    "maxStack": 999,
+    "basePrice": 20,
+    "description": "春季播种，5 天成熟。",
+    "sellable": true
+  },
+  {
+    "id": "seaweed",
+    "name": "海藻",
+    "category": "material",
+    "maxStack": 999,
+    "basePrice": 20,
+    "description": "从海中采集的海藻，可用于建造鱼塘。",
+    "sellable": true
+  },
+  {
+    "id": "honey",
+    "name": "蜂蜜",
+    "category": "artisan",
+    "maxStack": 999,
+    "basePrice": 100,
+    "description": "蜂箱产出的甜美蜂蜜。",
+    "sellable": true
+  },
+  {
+    "id": "truffle",
+    "name": "松露",
+    "category": "artisan",
+    "maxStack": 999,
+    "basePrice": 250,
+    "description": "猪在户外找到的珍贵松露。",
+    "sellable": true
+  },
+  {
+    "id": "oil",
+    "name": "油",
+    "category": "artisan",
+    "maxStack": 999,
+    "basePrice": 100,
+    "description": "烹饪用油，可用于多种料理。",
+    "sellable": true
+  },
+  {
+    "id": "egg",
+    "name": "鸡蛋",
+    "category": "food",
+    "maxStack": 999,
+    "basePrice": 100,
+    "description": "鸡下的蛋，可用于烹饪或加工。",
+    "sellable": true
+  },
+  {
+    "id": "milk",
+    "name": "牛奶",
+    "category": "food",
+    "maxStack": 999,
+    "basePrice": 135,
+    "description": "牛产的牛奶，可用于烹饪或加工。",
+    "sellable": true
+  },
+  {
+    "id": "sugar",
+    "name": "糖",
+    "category": "food",
+    "maxStack": 999,
+    "basePrice": 50,
+    "description": "烹饪常用的甜味剂。",
+    "sellable": true
+  }
+]

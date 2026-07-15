@@ -1,0 +1,19 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: zh-CN
+branch: master
+nodes_managed: true
+exported_at: "2026-07-13T07:30:50Z"
+modules:
+    "":
+        dir_name: 项目根目录与游戏设计文档集
+        title: 项目根目录与游戏设计文档集
+        scope:
+            - .claude/
+            - gdd.md
+            - .gitignore
+            - star-dew-valley-complete-analysis.md
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []

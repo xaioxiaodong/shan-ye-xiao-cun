@@ -1,0 +1,114 @@
+[
+  {
+    "id": "green_slime",
+    "name": "绿史莱姆",
+    "area": "1-20F",
+    "hp": 30,
+    "damage": 5,
+    "experience": 3,
+    "commonDrops": [
+      { "itemId": "slime", "chance": 0.80 }
+    ],
+    "rareDrops": [
+      { "itemId": "copper_ore", "chance": 0.10 }
+    ]
+  },
+  {
+    "id": "red_slime",
+    "name": "红史莱姆",
+    "area": "21-40F",
+    "hp": 50,
+    "damage": 8,
+    "experience": 5,
+    "commonDrops": [
+      { "itemId": "slime", "chance": 0.80 }
+    ],
+    "rareDrops": [
+      { "itemId": "ruby", "chance": 0.15 }
+    ]
+  },
+  {
+    "id": "bat",
+    "name": "蝙蝠",
+    "area": "10-30F",
+    "hp": 25,
+    "damage": 6,
+    "experience": 4,
+    "commonDrops": [
+      { "itemId": "bat_wing", "chance": 0.75 }
+    ],
+    "rareDrops": [
+      { "itemId": "iron_ore", "chance": 0.10 }
+    ]
+  },
+  {
+    "id": "skeleton",
+    "name": "骷髅",
+    "area": "30-50F",
+    "hp": 60,
+    "damage": 10,
+    "experience": 7,
+    "commonDrops": [
+      { "itemId": "bone", "chance": 0.70 }
+    ],
+    "rareDrops": [
+      { "itemId": "iron_ore", "chance": 0.15 }
+    ]
+  },
+  {
+    "id": "rock_crab",
+    "name": "岩石蟹",
+    "area": "1-40F",
+    "hp": 80,
+    "damage": 7,
+    "experience": 5,
+    "commonDrops": [
+      { "itemId": "crab_shell", "chance": 0.60 }
+    ],
+    "rareDrops": [
+      { "itemId": "diamond", "chance": 0.05 }
+    ]
+  },
+  {
+    "id": "flying_bug",
+    "name": "飞虫",
+    "area": "全层",
+    "hp": 15,
+    "damage": 4,
+    "experience": 2,
+    "commonDrops": [
+      { "itemId": "bug_meat", "chance": 0.80 }
+    ],
+    "rareDrops": [
+      { "itemId": "honey", "chance": 0.10 }
+    ]
+  },
+  {
+    "id": "shadow_brute",
+    "name": "暗影之子",
+    "area": "40-60F",
+    "hp": 100,
+    "damage": 15,
+    "experience": 10,
+    "commonDrops": [
+      { "itemId": "void_essence", "chance": 0.70 }
+    ],
+    "rareDrops": [
+      { "itemId": "iridium_ore", "chance": 0.10 }
+    ]
+  },
+  {
+    "id": "magma_spirit",
+    "name": "岩浆精灵",
+    "area": "50-60F",
+    "hp": 70,
+    "damage": 12,
+    "experience": 12,
+    "commonDrops": [
+      { "itemId": "magma_ore", "chance": 0.70 }
+    ],
+    "rareDrops": [
+      { "itemId": "fire_crystal", "chance": 0.10 }
+    ]
+  }
+]
